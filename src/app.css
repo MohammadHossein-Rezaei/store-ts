@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap");
+.App {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  gap: 20px;
+  padding: 30px 30px;
+  padding-top: 20px;
+  background-color: hsl(20, 50%, 98%);
+  height: auto;
+  font-family: "Red Hat Text", sans-serif;
+}
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px;
+}
+.main-title {
+  margin-top: 0px;
+}
