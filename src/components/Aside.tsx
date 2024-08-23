@@ -49,8 +49,10 @@ const Aside: React.FC = () => {
                         {item.quantity}×{" "}
                       </b>
                       <b className="p-aside" style={{ color: "#616161" }}>
-                        ${item.price.toFixed(2)} * {item.quantity} =
-                        {(item.price * item.quantity).toFixed(2)}
+                        ${item.price.toFixed(2)}
+                        <span style={{ paddingLeft: "5px" }}>
+                          {(item.price * item.quantity).toFixed(2)}
+                        </span>
                       </b>
                     </div>
 
