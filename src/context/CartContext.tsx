@@ -1,11 +1,16 @@
 import React, { createContext, useContext, useState } from "react";
 
+interface CartItem {
+  name: string; // نام محصول
+  quantity: number; // تعداد محصول
+  price: number; // قیمت محصول
+}
+
 interface CartContextType {
-  cartItems: string[];
-  addToCart: (item: string) => void;
-  removeFromCart: (item: string) => void;
-  value: Record<string, number>; // کلید productId و مقدار به عنوان تعداد
-  setValue: React.Dispatch<React.SetStateAction<Record<string, number>>>;
+  cartItems: CartItem[];
+  addToCart: (item: CartItem) => void;
+  removeFromCart: (itemName: string) => void;
+  clearCart: () => void; // اضافه کردن تابع clearCart برای پاک کردن کل سبد خرید
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -13,48 +18,50 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [cartItems, setCartItems] = useState<string[]>([]);
-  const [value, setValue] = useState<Record<string, number>>({}); // تغییر به Record
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
-  const addToCart = (item: string) => {
-    setCartItems((prevItems) => [...prevItems, item]);
-
-    // تنظیم مقدار تعداد برای محصول خاص
-    setValue((prevValue) => ({
-      ...prevValue,
-      [item]: (prevValue[item] || 0) + 1,
-    }));
+  const addToCart = (item: CartItem) => {
+    setCartItems((prevItems) => {
+      const existingItem = prevItems.find(
+        (cartItem) => cartItem.name === item.name
+      );
+      if (existingItem) {
+        return prevItems.map((cartItem) =>
+          cartItem.name === item.name
+            ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            : cartItem
+        );
+      } else {
+        return [...prevItems, { ...item, quantity: 1 }]; // اضافه کردن محصول جدید
+      }
+    });
   };
 
-  const removeFromCart = (item: string) => {
-    setValue((prevValue) => {
-      const currentQuantity = prevValue[item];
-      if (currentQuantity > 0) {
-        return {
-          ...prevValue,
-          [item]: currentQuantity - 1, // کاهش مقدار
-        };
+  const removeFromCart = (itemName: string) => {
+    setCartItems((prevItems) => {
+      const existingItem = prevItems.find(
+        (cartItem) => cartItem.name === itemName
+      );
+      if (existingItem && existingItem.quantity > 1) {
+        return prevItems.map((cartItem) =>
+          cartItem.name === itemName
+            ? { ...cartItem, quantity: cartItem.quantity - 1 }
+            : cartItem
+        );
       } else {
-        // وقتی مقدار 1 است، محصول را از cartItems حذف می‌کنیم
-        setCartItems((prevItems) => prevItems.filter((i) => i !== item));
-        const { [item]: removedItem, ...rest } = prevValue; // حذف محصول از value
-        return rest;
+        return prevItems.filter((cartItem) => cartItem.name !== itemName); // حذف محصول
       }
     });
+  };
 
-    // حذف و یا کاهش مقدار
-    setValue((prevValue) => {
-      const newValue = { ...prevValue };
-      if (newValue[item]) {
-        delete newValue[item]; // حذف محصول اگر از کارت حذف شود
-      }
-      return newValue;
-    });
+  const clearCart = () => {
+    // تابع جدید برای پاک کردن کل سبد خرید
+    setCartItems([]); // پاک کردن تمام محصولات
   };
 
   return (
     <CartContext.Provider
-      value={{ cartItems, addToCart, removeFromCart, value, setValue }}
+      value={{ cartItems, addToCart, removeFromCart, clearCart }}
     >
       {children}
     </CartContext.Provider>

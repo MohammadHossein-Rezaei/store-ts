@@ -1,5 +1,4 @@
 import React from "react";
-// import { useCart } from "../context/CartContext";
 import "./product.css";
 import AddToCart from "./AddToCart";
 
@@ -19,8 +18,6 @@ interface Image {
 }
 
 const Product: React.FC<ProductProps> = ({ product }) => {
-  // const { addToCart } = useCart();
-
   return (
     <div>
       <picture className="picture-container">
@@ -33,10 +30,8 @@ const Product: React.FC<ProductProps> = ({ product }) => {
           src={product.image.thumbnail}
           alt={product.name}
         />
-        {/* <button onClick={() => addToCart(product.name)}>
-          اضافه به سبد خرید
-        </button> */}
-        <AddToCart productName={product.name} />
+
+        <AddToCart productName={product.name} productPrice={product.price} />
       </picture>
       <p className="category">{product.category}</p>
       <h3 className="name">{product.name}</h3>

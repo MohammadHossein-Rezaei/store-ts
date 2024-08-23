@@ -1,0 +1,47 @@
+.confirm-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.confirm-box {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 300px;
+}
+.confirm-box ul {
+  background-color: hsl(20, 50%, 98%);
+  max-height: 200px;
+  overflow-y: auto;
+}
+.confirm-list {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  list-style-type: none;
+  border-bottom: 1px solid #eee;
+}
+.confirmed-button {
+  display: grid;
+  justify-self: center;
+  color: aliceblue;
+  background-color: hsl(14, 86%, 42%);
+  border: 0px;
+  padding: 10px;
+  width: 90%;
+  margin: 5px;
+  border-radius: 25px;
+}
+.confirmed-button:hover {
+  background-color: hsl(14, 100%, 27%);
+}

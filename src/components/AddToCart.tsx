@@ -4,14 +4,20 @@ import "./addToCart.css";
 
 type Props = {
   productName: string;
+  productPrice: number; // اضافه کردن قیمت
 };
 
-export default function AddToCart({ productName }: Props) {
+export default function AddToCart({ productName, productPrice }: Props) {
   const [isHovered, setIsHovered] = useState<boolean>(false);
-  const { addToCart, value, removeFromCart } = useCart();
+  const { addToCart, removeFromCart, cartItems } = useCart();
+
+  const itemInCart = cartItems.find((item) => item.name === productName);
+  const quantity = itemInCart ? itemInCart.quantity : 0;
 
   const handleDecrement = () => {
-    removeFromCart(productName);
+    if (quantity > 0) {
+      removeFromCart(productName);
+    }
   };
 
   return (
@@ -26,15 +32,16 @@ export default function AddToCart({ productName }: Props) {
             className="icon-hover"
             src="../../../public/assets/images/icon-minus.png"
             alt="decrement"
-            onClick={handleDecrement} // استفاده از handleDecrement
+            onClick={handleDecrement}
           />
-          <b>{value[productName] || 0}</b>{" "}
-          {/* استفاده از value مربوط به محصول */}
+          <b>{quantity}</b>
           <img
             className="icon-hover"
             src="../../../public/assets/images/icon-plus.png"
             alt="increment"
-            onClick={() => addToCart(productName)}
+            onClick={() =>
+              addToCart({ name: productName, quantity: 1, price: productPrice })
+            } // ارسال قیمت
           />
         </div>
       ) : (
