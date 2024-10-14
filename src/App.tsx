@@ -1,9 +1,10 @@
 import { CartProvider } from "./context/CartContext";
 import ProductList from "./components/ProductList";
-import Aside from "./components/Aside";
-import "./app.css";
 
-const App: React.FC = () => {
+import "./app.css";
+import Aside from "./components/aside";
+
+const App = () => {
   return (
     <CartProvider>
       <div className="App">

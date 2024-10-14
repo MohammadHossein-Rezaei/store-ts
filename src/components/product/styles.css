@@ -13,12 +13,12 @@
 }
 
 .category {
-  color: hsl(12, 20%, 44%);
+  color: #87635a;
   margin-bottom: 0px;
 }
 
 .price {
-  color: hsl(14, 86%, 42%);
+  color: #c73a0f;
   margin: 0px;
 }
 
@@ -26,6 +26,3 @@
   position: relative;
   display: inline-block;
 }
-/* .product-img {
-  display: block;
-} */

@@ -6,11 +6,13 @@
   padding: 10px;
   width: 60%;
   border-radius: 20px;
-  border: solid 1px hsl(14, 25%, 72%);
+  border: solid 1px #c9aea6;
   background-color: #fff;
+  transition: 0.8s;
 }
 .add-to-cart:hover {
-  background-color: hsl(14, 86%, 42%);
+  background-color: #c73a0f;
+  transition: 1s;
 }
 .button-product {
   display: grid;

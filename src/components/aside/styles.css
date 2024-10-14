@@ -1,11 +1,18 @@
-/* #aside {
-} */
+/* //TODO: using hex for colors in all css files */
+
+@media (max-width: 799px) {
+  .container-cart {
+    width: 90%;
+  }
+}
 .container-cart {
   background-color: white;
-  width: 80%;
   min-height: fit-content;
   border-radius: 5px;
   padding: 15px;
+  @media (min-width: 799px) {
+    width: 80%;
+  }
 }
 .container-cart ul {
   padding: 0px;
@@ -13,7 +20,7 @@
 .title-aside {
   font-size: 16px;
   margin: 0px;
-  color: hsl(14, 86%, 42%);
+  color: #c73a0f;
   padding-bottom: 10px;
 }
 .content-cart {
@@ -28,7 +35,7 @@
   width: 120px;
 }
 #text-none {
-  color: hsl(14, 65%, 9%);
+  color: #260f08;
   font-size: 10px;
 }
 .buy-list {
@@ -46,10 +53,14 @@
   width: 13px;
   height: 13px;
 }
-.p-aside {
+.b-aside {
   display: inline-block;
   font-size: 10px;
   margin: 5px;
+  color: #616161;
+}
+.quantity {
+  color: #c73a0f;
 }
 
 .confirm-order {
@@ -73,7 +84,7 @@
   display: grid;
   justify-self: center;
   color: aliceblue;
-  background-color: hsl(14, 86%, 42%);
+  background-color: #c73a0f;
   border: 0px;
   padding: 10px;
   width: 80%;
@@ -81,5 +92,5 @@
   border-radius: 25px;
 }
 .confirm-button:hover {
-  background-color: hsl(14, 100%, 27%);
+  background-color: #8a2000;
 }

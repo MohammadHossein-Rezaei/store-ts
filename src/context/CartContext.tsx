@@ -10,7 +10,8 @@ interface CartContextType {
   cartItems: CartItem[];
   addToCart: (item: CartItem) => void;
   removeFromCart: (itemName: string) => void;
-  clearCart: () => void; // اضافه کردن تابع clearCart برای پاک کردن کل سبد خرید
+  clearCart: () => void;
+  dicrementFromCart: (itemName: string) => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -32,12 +33,18 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
             : cartItem
         );
       } else {
-        return [...prevItems, { ...item, quantity: 1 }]; // اضافه کردن محصول جدید
+        const test = [...prevItems, { ...item, quantity: 1 }];
+        return test;
       }
     });
   };
 
   const removeFromCart = (itemName: string) => {
+    const existingItem = cartItems.filter((item) => item.name !== itemName);
+    setCartItems(existingItem);
+  };
+
+  const dicrementFromCart = (itemName: string) => {
     setCartItems((prevItems) => {
       const existingItem = prevItems.find(
         (cartItem) => cartItem.name === itemName
@@ -55,13 +62,18 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   const clearCart = () => {
-    // تابع جدید برای پاک کردن کل سبد خرید
-    setCartItems([]); // پاک کردن تمام محصولات
+    setCartItems([]);
   };
 
   return (
     <CartContext.Provider
-      value={{ cartItems, addToCart, removeFromCart, clearCart }}
+      value={{
+        cartItems,
+        addToCart,
+        removeFromCart,
+        clearCart,
+        dicrementFromCart,
+      }}
     >
       {children}
     </CartContext.Provider>

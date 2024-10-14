@@ -1,7 +1,7 @@
 // Confirm.tsx
 import React from "react";
-import "./confirmed.css";
-import "../../public/assets/images/icon-order-confirmed.svg";
+import "./styles.css";
+import "/public/assets/images/icon-order-confirmed.svg";
 
 interface ConfirmProps {
   onClose: () => void;
@@ -10,6 +10,7 @@ interface ConfirmProps {
   cartItems: any[];
 }
 
+//TODO: using index, Using assets for src of images,Use className inseted of using style={{ margin: "0px", marginTop: "5px" }}
 const Confirm: React.FC<ConfirmProps> = ({
   onClose,
   totalPrice,
@@ -22,7 +23,7 @@ const Confirm: React.FC<ConfirmProps> = ({
         <div>
           <img
             style={{ height: "26px" }}
-            src="../../public/assets/images/icon-order-confirmed.svg"
+            src="/assets/images/icon-order-confirmed.svg"
             alt="تایید"
           />
           <h2 style={{ margin: "0px", marginTop: "5px" }}> Order Confirmed</h2>
@@ -33,10 +34,8 @@ const Confirm: React.FC<ConfirmProps> = ({
             <li className="confirm-list" key={item.name}>
               <div>
                 <h4 className="productName-aside">{item.name}</h4>
-                <b className="p-aside" style={{ color: "hsl(14, 86%, 42%)" }}>
-                  {item.quantity}×{" "}
-                </b>
-                <b className="p-aside" style={{ color: "#616161" }}>
+                <b className="b-aside quantity ">{item.quantity}× </b>
+                <b className="b-aside">
                   ${item.price.toFixed(2)}
                   <span style={{ paddingLeft: "5px" }}>
                     {(item.price * item.quantity).toFixed(2)}

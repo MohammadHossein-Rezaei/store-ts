@@ -1,6 +1,6 @@
 import React from "react";
-import "./product.css";
-import AddToCart from "./AddToCart";
+import "./styles.css";
+import AddToCart from "../addToCard";
 
 interface ProductProps {
   product: {
@@ -17,6 +17,7 @@ interface Image {
   desktop: string;
 }
 
+//TODO: using index
 const Product: React.FC<ProductProps> = ({ product }) => {
   return (
     <div>
