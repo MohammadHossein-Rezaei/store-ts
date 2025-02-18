@@ -3,7 +3,6 @@ import "./styles.css";
 import { useCart } from "../../context/CartContext";
 import Confirm from "../confirmed";
 import Orders from "../orders";
-
 const Aside = () => {
   const { cartItems, clearCart } = useCart();
   const totalQuantity = cartItems.reduce(

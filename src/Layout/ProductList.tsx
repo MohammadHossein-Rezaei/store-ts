@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Product from "../components/product";
+
 const ProductList: React.FC = () => {
   const [products, setProducts] = useState<any[]>([]);
 
   useEffect(() => {
-    fetch("/Data/products.json")
+    fetch("/store-ts/src/Data/products.json")
       .then((response) => response.json())
       .then((data) => setProducts(data));
   }, []);
