@@ -1,9 +1,9 @@
 import React, { createContext, useContext, useState } from "react";
 
 interface CartItem {
-  name: string; // نام محصول
-  quantity: number; // تعداد محصول
-  price: number; // قیمت محصول
+  name: string;
+  quantity: number;
+  price: number;
 }
 
 interface CartContextType {

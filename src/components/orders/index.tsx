@@ -27,7 +27,7 @@ export default function Orders({ handleConfirmClick, totalPrice }: Props) {
             <img
               className="remove-icon"
               onClick={() => removeFromCart(item.name)}
-              src="/assets/images/icon-remove-item.svg"
+              src="/store/public/images/icon-remove-item.svg"
               alt="remove"
             />
           </li>

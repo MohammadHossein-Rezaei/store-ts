@@ -1,11 +1,9 @@
-// Aside.tsx
 import { useState } from "react";
 import "./styles.css";
 import { useCart } from "../../context/CartContext";
 import Confirm from "../confirmed";
 import Orders from "../orders";
 
-//TODO: using index
 const Aside = () => {
   const { cartItems, clearCart } = useCart();
   const totalQuantity = cartItems.reduce(
@@ -31,7 +29,6 @@ const Aside = () => {
     clearCart();
   };
 
-  //TODO: splite component
   return (
     <>
       <aside className="aside">
@@ -45,7 +42,7 @@ const Aside = () => {
             />
           ) : (
             <div className="content-cart">
-              <img src="/assets/images/notFood.svg" alt="" />
+              <img src="/store/public/images/notFood.svg" alt="notFood" />
               <p id="text-none">Your added items will appear here</p>
             </div>
           )}

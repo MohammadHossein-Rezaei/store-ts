@@ -1,7 +1,6 @@
 // Confirm.tsx
 import React from "react";
 import "./styles.css";
-import "/public/assets/images/icon-order-confirmed.svg";
 
 interface ConfirmProps {
   onClose: () => void;
@@ -23,7 +22,7 @@ const Confirm: React.FC<ConfirmProps> = ({
         <div>
           <img
             style={{ height: "26px" }}
-            src="/assets/images/icon-order-confirmed.svg"
+            src="/store/public/images/icon-order-confirmed.svg"
             alt="تایید"
           />
           <h2 style={{ margin: "0px", marginTop: "5px" }}> Order Confirmed</h2>

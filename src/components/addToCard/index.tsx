@@ -30,14 +30,14 @@ export default function AddToCart({ productName, productPrice }: Props) {
         <div className="button-product-hover">
           <img
             className="icon-hover"
-            src="/assets/images/icon-minus.png"
+            src="/store/public/images/icon-minus.png"
             alt="decrement"
             onClick={handleDecrement}
           />
           <b>{quantity}</b>
           <img
             className="icon-hover"
-            src="/assets/images/icon-plus.png"
+            src="/store/public/images/icon-plus.png"
             alt="increment"
             onClick={() =>
               addToCart({ name: productName, quantity: 1, price: productPrice })
@@ -48,7 +48,7 @@ export default function AddToCart({ productName, productPrice }: Props) {
         <div className="button-product">
           <img
             className="icon-add-to-cart"
-            src="/assets/images/icon-add-to-cart.svg"
+            src="/store/public/images/icon-add-to-cart.svg"
             alt="icon add"
           />
           <b>Add to Cart</b>
