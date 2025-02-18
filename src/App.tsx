@@ -1,7 +1,7 @@
 import { CartProvider } from "./context/CartContext";
 import "./app.css";
 import Aside from "./components/aside";
-import ProductList from "./components/ProductList";
+import ProductList from "./Layout/ProductList";
 
 const App = () => {
   return (
