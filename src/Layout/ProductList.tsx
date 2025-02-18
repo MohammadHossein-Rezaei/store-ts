@@ -4,7 +4,7 @@ const ProductList: React.FC = () => {
   const [products, setProducts] = useState<any[]>([]);
 
   useEffect(() => {
-    fetch("/store/public/Data/products.json")
+    fetch("/Data/products.json")
       .then((response) => response.json())
       .then((data) => setProducts(data));
   }, []);

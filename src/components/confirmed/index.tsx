@@ -9,7 +9,6 @@ interface ConfirmProps {
   cartItems: any[];
 }
 
-//TODO: using index, Using assets for src of images,Use className inseted of using style={{ margin: "0px", marginTop: "5px" }}
 const Confirm: React.FC<ConfirmProps> = ({
   onClose,
   totalPrice,
@@ -22,7 +21,7 @@ const Confirm: React.FC<ConfirmProps> = ({
         <div>
           <img
             style={{ height: "26px" }}
-            src="/store/public/images/icon-order-confirmed.svg"
+            src="/images/icon-order-confirmed.svg"
             alt="تایید"
           />
           <h2 style={{ margin: "0px", marginTop: "5px" }}> Order Confirmed</h2>

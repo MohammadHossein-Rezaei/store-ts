@@ -17,7 +17,6 @@ interface Image {
   desktop: string;
 }
 
-//TODO: using index
 const Product: React.FC<ProductProps> = ({ product }) => {
   return (
     <div>

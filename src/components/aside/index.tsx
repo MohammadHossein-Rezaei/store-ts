@@ -42,7 +42,7 @@ const Aside = () => {
             />
           ) : (
             <div className="content-cart">
-              <img src="/store/public/images/notFood.svg" alt="notFood" />
+              <img src="/images/notFood.svg" alt="notFood" />
               <p id="text-none">Your added items will appear here</p>
             </div>
           )}
